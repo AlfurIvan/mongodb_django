@@ -1,5 +1,5 @@
 import json
-from rest_framework import status, generics
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from bson import ObjectId
@@ -51,9 +51,10 @@ class ListDocuments(APIView):
         filters = self.get_filters(request)
 
         if not filters:
-            return Response({"message":"I dont want to set the world on fire"})
+            return Response({"message": "I dont want to set the world on fire"})
         deleted_count = client.delete_documents(collection_name, filters)
         return Response({'deleted_count': deleted_count})
+
 
 class DocumentDetail(APIView):
     def get(self, request, collection_name, document_id):
@@ -80,8 +81,8 @@ class DocumentDetail(APIView):
 
 class CreateDocument(APIView):
 
-    def get(self,request, *args, **kwargs):
-        return Response(data={"message":"debug"})
+    def get(self, request, *args, **kwargs):
+        return Response(data={"message": "debug"})
 
     def post(self, request, collection_name):
         if isinstance(request.data, list):  # Перевіряємо, чи надійшов список документів

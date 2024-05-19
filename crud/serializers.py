@@ -20,7 +20,7 @@ class RoadmapSerializer(serializers.Serializer):
     _id = serializers.CharField(read_only=True)
     job_title = serializers.CharField(max_length=255, required=False)
     tech_stack = serializers.ListField(
-        child=serializers.CharField(max_length=50),required=False
+        child=serializers.CharField(max_length=50), required=False
     )
     duration = serializers.IntegerField(required=False)
     last_updated = serializers.DateTimeField(required=False)
@@ -37,4 +37,4 @@ class RoadmapSerializer(serializers.Serializer):
     years_of_experience = serializers.IntegerField(required=False)
     desired_genre = serializers.CharField(max_length=50, required=False)
     additional_info = serializers.DictField(required=False)
-    difficulty = serializers.CharField(max_length=50,required=False)
+    difficulty = serializers.CharField(max_length=50, required=False)
